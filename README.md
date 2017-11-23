@@ -1,4 +1,4 @@
-# Show Tonight
+# Simply meal
 
 Show Tonight is a sample application that demonstrates how to build mobile apps with Ionic 3 for HackX. 
 
