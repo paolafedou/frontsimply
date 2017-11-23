@@ -24,11 +24,21 @@
             </ion-item>
            
         </ion-list>
-
         <ion-item>
-            <button ion-button icon-left (click)="favorite(recipe)" clear item-left>
+            <button ion-button icon-left (click)="remove1person()" clear item-left>
                 <ion-icon name="star"></ion-icon>
-                Favorite
+                Remove
+            </button>
+            <h2>{{personCount}} personnes</h2>
+            <button ion-button icon-left (click)="add1person()" clear item-right>
+                <ion-icon name="star"></ion-icon>
+                Add
+            </button>
+        </ion-item>
+        <ion-item>
+            <button ion-button icon-left (click)="addToCart(recipe)" clear item-left>
+                <ion-icon name="star"></ion-icon>
+                Add to Cart
             </button>
             <button ion-button icon-left (click)="share(recipe)" clear item-right>
                 <ion-icon name="share"></ion-icon>

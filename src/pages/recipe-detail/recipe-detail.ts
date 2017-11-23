@@ -9,12 +9,33 @@ import {RecipeService} from '../../providers/recipe-service-rest';
 export class RecipeDetailPage {
 
     recipe: any;
+    personCount: number = 0;
 
     constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController, public navParams: NavParams, public RecipeService: RecipeService, public toastCtrl: ToastController) {
         this.recipe = this.navParams.data;
         RecipeService.findById(this.recipe.id).then(
             recipe => this.recipe = recipe
         );
+    }
+
+    add1person() {
+        this.personCount = this.personCount + 1;
+    }
+
+    remove1person() {
+        this.personCount = this.personCount - 1;
+    }
+
+    addToCart(recipe) {
+        this.RecipeService.addToCart(recipe, this.personCount)
+            .then(recipe => {
+                let toast = this.toastCtrl.create({
+                    message: 'Recipe added to your cart for ' + this.personCount + ' people',
+                    cssClass: 'mytoast',
+                    duration: 1000
+                });
+                toast.present(toast);
+            });
     }
 
     favorite(recipe) {

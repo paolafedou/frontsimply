@@ -31,7 +31,7 @@ export class MyApp {
 
         this.appMenuItems = [
             {title: 'Recipes', component: RecipeListPage, icon: 'bonfire'},
-            {title: 'Cart', component: RecipeListPage, icon: 'basket'}
+            {title: 'Cart', component: FavoriteListPage, icon: 'basket'}
         ];
 
         this.helpMenuItems = [

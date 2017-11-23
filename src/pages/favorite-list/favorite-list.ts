@@ -9,27 +9,30 @@ import {RecipeDetailPage} from '../recipe-detail/recipe-detail';
 })
 export class FavoriteListPage {
 
-    favorites: Array<any>;
+    cartItems: Array<any>;
 
     constructor(public navCtrl: NavController, public service: RecipeService) {
-        this.getFavorites();
+        this.getCart();
     }
 
-    itemTapped(favorite) {
-        this.navCtrl.push(RecipeDetailPage, favorite.show);
+    itemTapped(recipe) {
+        this.navCtrl.push(RecipeDetailPage, recipe.show);
     }
 
-    deleteItem(favorite) {
-        this.service.unfavorite(favorite)
+    deleteItem(recipe) {
+        this.service.removeFromCart(recipe)
             .then(() => {
-                this.getFavorites();
+                this.getCart();
             })
             .catch(error => alert(JSON.stringify(error)));
     }
 
-    getFavorites() {
-        this.service.getFavorites()
-            .then(data => this.favorites = data);
+    getCart() {
+        this.service.getCart()
+        .then(data => {
+                this.cartItems = data;
+                console.log("data", this.cartItems);
+                })
     }
 
 }
