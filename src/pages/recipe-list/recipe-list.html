@@ -1,0 +1,32 @@
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)"
+                       (ionCancel)="onCancel($event)"></ion-searchbar>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="recipe-list">
+
+    <ion-list *ngIf="viewMode==='list'">
+
+        <ion-item-sliding *ngFor="let recipe of recipes">
+            <button class="button button-balanced" ion-item (click)="openRecipeDetail(recipe)">
+                <ion-thumbnail item-left>
+                    <img src="{{recipe.image}}"/>
+                </ion-thumbnail>
+                <h2>{{recipe.name}}</h2>
+                <p>{{recipe.category}}</p>
+            </button>
+            <ion-item-options>
+                <button danger (click)="deleteItem(recipe)">Delete</button>
+            </ion-item-options>
+        </ion-item-sliding>
+
+    </ion-list>
+
+    
+
