@@ -8,8 +8,10 @@ import {RecipeListPage} from '../recipe-list/recipe-list';
 })
 export class WelcomePage {
   @ViewChild(Slides) slides: Slides;
+  categories: Array<any>;
 
     constructor(public navCtrl: NavController) {
+        this.categories = [{"name" : "Healthy", "img" : "assets/img/Healthy.jpg"},{"name" : "Noel", "img" : "assets/img/Noel.jpg"},{"name" : "Automne", "img" : "assets/img/Automne.jpg"}];
     }
 
     ngAfterViewInit() {
@@ -18,5 +20,9 @@ export class WelcomePage {
 
     openRecipeList() {
         this.navCtrl.push(RecipeListPage);
+    }
+
+    openRecipeListCat(category) {
+        this.navCtrl.push(RecipeListPage,category);
     }
 }

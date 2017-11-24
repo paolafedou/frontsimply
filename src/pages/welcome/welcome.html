@@ -1,13 +1,13 @@
 <ion-header>
     <ion-navbar>
         <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
+            <ion-icon name="basket"></ion-icon>
         </button>
-        <ion-title>Welcome</ion-title>
+        <ion-title text-center>Hungry ?</ion-title>
     </ion-navbar>
 </ion-header>
 
-<ion-content no-bounce>
+<!-- <ion-content no-bounce>
     <ion-slides>
         <ion-slide style="background-image: url('assets/img/slide_1.jpg');">
             <p>SimplyMeal is the best app!</p>
@@ -25,6 +25,25 @@
                 </button>
             </p>
         </ion-slide>
+    </ion-slides>
+
+</ion-content> -->
+
+<ion-content no-bounce>
+<ion-content>
+    <ion-slides>
+            <ion-list>
+                <div  *ngFor="let category of categories"> 
+                 <div class="mybuttonclass" tappable (click)="openRecipeListCat(category.name)">
+                    <h2>{{category.name}}</h2>
+                    <img [src]="category.img">
+                 </div>
+                </div>
+            </ion-list>
+<!--                 <button ion-button round large (click)="openRecipeList()">
+                        <h2>{{category}}</h2>
+                </button> -->
+
     </ion-slides>
 
 </ion-content>

@@ -29,6 +29,11 @@ export class RecipeService {
             .toPromise();
     }
 
+
+    trouverCat(recipe) {
+    return recipe.category === 'Healthy';
+    }
+
     getFavorites() {
         return Promise.resolve(this.favorites);
     }

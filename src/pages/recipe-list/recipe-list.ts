@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Config, NavController} from 'ionic-angular';
+import {Config, NavController, NavParams} from 'ionic-angular';
 import {RecipeService} from '../../providers/recipe-service-rest';
 import {RecipeDetailPage} from '../recipe-detail/recipe-detail';
 import leaflet from 'leaflet';
@@ -16,12 +16,18 @@ export class RecipeListPage {
     viewMode: string = "list";
     map;
     markersGroup;
+    category: any;
+    recipesCat: Array<any>;
 
-    constructor(public navCtrl: NavController, public service: RecipeService, public config: Config) {
+    constructor(public navCtrl: NavController, public service: RecipeService, public config: Config, public navParams: NavParams) {
         this.findAll();
+        this.category = this.navParams.get('category');
+        console.log(this.category);
+
     }
 
     openRecipeDetail(recipe: any) {
+        console.log(recipe.category);
         this.navCtrl.push(RecipeDetailPage, recipe);
     }
 
@@ -77,5 +83,10 @@ export class RecipeListPage {
         });
         this.map.addLayer(this.markersGroup);
     }
+
+    // selectCat() {
+    //     this.recipesCat = this.recipes.find(recipe.category==='Healthy')
+    // }
+
 
 }

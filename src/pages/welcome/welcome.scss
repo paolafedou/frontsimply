@@ -1,6 +1,24 @@
 page-welcome {
 
+
+  @font-face {
+  font-family: MyFont;
+  src: url("../../assets/fonts/roboto-light.ttf");
+  }
+
+  ion-title {
+  font-family: 'MyFont' !important;
+  }
   font-weight: 300;
+
+  ion-list {
+    img {
+    width: 600px;
+    height: 100px;
+    margin-top: 0px
+    }
+
+  }
 
   ion-slide {
 
