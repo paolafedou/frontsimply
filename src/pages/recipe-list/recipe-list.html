@@ -14,16 +14,16 @@
     <ion-list *ngIf="viewMode==='list'">
 
         <ion-item-sliding *ngFor="let recipe of recipesCat">
-            <button class="button button-balanced" ion-item (click)="openRecipeDetail(recipe)">
-                <ion-thumbnail item-left>
-                    <img src="{{recipe.image}}"/>
-                </ion-thumbnail>
-                <h2>{{recipe.name}}</h2>
-                <p>{{recipe.category}}</p>
-            </button>
-            <ion-item-options>
-                <button danger (click)="deleteItem(recipe)">Delete</button>
-            </ion-item-options>
+                <button class="button button-balanced" ion-item (click)="openRecipeDetail(recipe)">
+                    <ion-thumbnail item-left>
+                         <img src="{{recipe.image}}"/>
+                    </ion-thumbnail>
+                    <h2>{{recipe.name}}</h2>
+                    <p>{{recipe.category}}</p>
+                </button>
+                <ion-item-options>
+                    <button danger (click)="deleteItem(recipe)">Delete</button>
+                </ion-item-options>
         </ion-item-sliding>
 
     </ion-list>

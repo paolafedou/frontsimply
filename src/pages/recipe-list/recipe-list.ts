@@ -10,7 +10,8 @@ import leaflet from 'leaflet';
 })
 export class RecipeListPage {
 
-    recipes: Array<any>;
+    recipes: Array<any> = [];
+    recipes_cat: Array<any>;
     recipesForSearch: Array<any>;
     searchKey: string = "";
     viewMode: string = "list";
@@ -20,9 +21,17 @@ export class RecipeListPage {
     recipesCat: Array<any>;
 
     constructor(public navCtrl: NavController, public service: RecipeService, public config: Config, public navParams: NavParams) {
-        this.findAll();
-        this.category = this.navParams.get('category');
-        console.log(this.category);
+        this.service.findAll()
+            .then(
+                data => {
+                this.recipes = data;
+                this.recipesForSearch = data;
+                this.recipesCat = [];
+                this.category = this.navParams.data;
+                category => this.category = category
+                this.showRecipes()});
+        this.category = this.navParams.data;
+        category => this.category = category
 
     }
 
@@ -59,6 +68,17 @@ export class RecipeListPage {
             .catch(error => alert(error));
     }
 
+    showRecipes(){
+        let val = this.recipes;
+        console.log(val)
+        for (var _i = 0; _i < val.length; _i++) {
+            if(val[_i].category == this.category){
+                this.recipesCat.push(val[_i]);
+                console.log('add');
+            }
+    }
+}
+
     recipeMap() {
         setTimeout(() => {
             this.map = leaflet.map("map").setView([48.85, 2.35], 10);
@@ -84,9 +104,7 @@ export class RecipeListPage {
         this.map.addLayer(this.markersGroup);
     }
 
-    // selectCat() {
-    //     this.recipesCat = this.recipes.find(recipe.category==='Healthy')
-    // }
-
-
 }
+
+
+
