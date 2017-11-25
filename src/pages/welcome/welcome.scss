@@ -10,19 +10,37 @@ page-welcome {
     color: black;
 }
 
+ion-header{
+  background-color: rgba(25, 156, 93, .8);
+
+}
+
+.toolbar-background {
+  background-color: rgba(25, 156, 93, .8);
+}
+
 ion-title{
-  background-color: rgba(50, 100, 0, .8);
+  background-color: rgba(25, 156, 93, .8);
 }
 ion-list {
 
 border-top: 1px;
 border-bottom: 1px;
 
+  div{
+    border-width: 2px;  
+    border-style:solid;
+    border-color:rgba(25, 156, 93, .8);
+
+  }
+
+
+
   img {
   position: relative;
   align-items: center;
-  width: 60%;
-  height: 40%;
+  width: 40%;
+  height: 20%;
   margin-top: -10px
      }
 
@@ -37,6 +55,9 @@ border-bottom: 1px;
     background-size: cover;
 
     p {
+      display: inline-block;
+      
+      border: 2px groove black;
       position: absolute;
       bottom: 0;
       left: 0;
@@ -52,6 +73,11 @@ border-bottom: 1px;
       width: 100px;
       height: 50px;
       margin-top: -150px
+    }
+
+    div {
+    border-width: 5px;  
+    border-style:groove;
     }
 
   }
