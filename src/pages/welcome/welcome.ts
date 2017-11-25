@@ -1,6 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import { Slides, NavController } from 'ionic-angular';
 import {RecipeListPage} from '../recipe-list/recipe-list';
+import { ImageResizer, ImageResizerOptions } from '@ionic-native/image-resizer';
 
 @Component({
     selector: 'page-welcome',
@@ -12,8 +13,8 @@ export class WelcomePage {
 
     constructor(public navCtrl: NavController) {
         this.categories = [{"name" : "Healthy", "img" : "assets/img/Healthy.jpg"},{"name" : "Noel", "img" : "assets/img/Noel.jpg"},{"name" : "Automne", "img" : "assets/img/Automne.jpg"}];
-    }
 
+    }
     ngAfterViewInit() {
       this.slides.pager = true;
     }
@@ -23,6 +24,7 @@ export class WelcomePage {
     }
 
     openRecipeListCat(category) {
+        console.log(category);
         this.navCtrl.push(RecipeListPage,category);
     }
 }

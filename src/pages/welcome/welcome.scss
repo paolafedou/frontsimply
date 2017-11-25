@@ -1,27 +1,38 @@
 page-welcome {
 
+.col-33 {
+  width: 33%;
+  float:left;
+}
 
-  @font-face {
-  font-family: MyFont;
-  src: url("../../assets/fonts/roboto-light.ttf");
-  }
+.center {
+    text-align: center;
+    color: black;
+}
 
-  ion-title {
-  font-family: 'MyFont' !important;
-  }
+ion-title{
+  background-color: rgba(50, 100, 0, .8);
+}
+ion-list {
+
+border-top: 1px;
+border-bottom: 1px;
+
+  img {
+  position: relative;
+  align-items: center;
+  width: 60%;
+  height: 40%;
+  margin-top: -10px
+     }
+
+}
+
   font-weight: 300;
 
-  ion-list {
-    img {
-    width: 600px;
-    height: 100px;
-    margin-top: 0px
-    }
-
-  }
+ 
 
   ion-slide {
-
     position: relative;
     background-size: cover;
 
@@ -30,7 +41,7 @@ page-welcome {
       bottom: 0;
       left: 0;
       right: 0;
-      background-color: rgba(50, 19, 178, .8);
+      background-color: rgba(50, 100, 0, .8);
       color: #FFFFFF;
       padding: 28px 28px 48px 28px;
       font-size: 2.7rem;

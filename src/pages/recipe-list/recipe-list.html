@@ -13,7 +13,7 @@
 
     <ion-list *ngIf="viewMode==='list'">
 
-        <ion-item-sliding *ngFor="let recipe of recipes">
+        <ion-item-sliding *ngFor="let recipe of recipesCat">
             <button class="button button-balanced" ion-item (click)="openRecipeDetail(recipe)">
                 <ion-thumbnail item-left>
                     <img src="{{recipe.image}}"/>
