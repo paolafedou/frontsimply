@@ -13,7 +13,7 @@
 <ion-content class="favorite-list">
     <ion-list>
         <ion-item-sliding *ngFor="let cartItem of cartItems">
-            <button ion-item (click)="itemTapped(cartItem)">
+            <button ion-item (click)="openRecipeDetail(cartItem.recipe)">
                 <ion-thumbnail item-left>
                     <img src="{{cartItem.recipe.image}}"/>
                 </ion-thumbnail>

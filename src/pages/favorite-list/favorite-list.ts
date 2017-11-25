@@ -41,4 +41,34 @@ export class FavoriteListPage {
                 })
     }
 
+    openRecipeDetail(recipe: any) {
+        console.log(recipe.category);
+        this.navCtrl.push(RecipeDetailPage, recipe);
+    }
+
+    recipeMap() {
+        setTimeout(() => {
+            this.map = leaflet.map("map").setView([48.85, 2.35], 10);
+            leaflet.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Tiles &copy; Esri'
+            }).addTo(this.map);
+            this.recipeMarkers();
+        })
+    }
+
+    recipeMarkers() {
+        if (this.markersGroup) {
+            this.map.removeLayer(this.markersGroup);
+        }
+        this.markersGroup = leaflet.layerGroup([]);
+        this.recipes.forEach(recipe => {
+            if (recipe.lat, recipe.lng) {
+                let marker: any = leaflet.marker([recipe.lat, recipe.lng]).on('click', event => this.openRecipeDetail(event.target.data));
+                marker.data = recipe;
+                this.markersGroup.addLayer(marker);
+            }
+        });
+        this.map.addLayer(this.markersGroup);
+    }
+
 }

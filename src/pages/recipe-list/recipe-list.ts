@@ -17,7 +17,7 @@ export class RecipeListPage {
     viewMode: string = "list";
     map;
     markersGroup;
-    category: any;
+    category: any ='';
     recipesCat: Array<any>;
 
     constructor(public navCtrl: NavController, public service: RecipeService, public config: Config, public navParams: NavParams) {
@@ -27,9 +27,19 @@ export class RecipeListPage {
                 this.recipes = data;
                 this.recipesForSearch = data;
                 this.recipesCat = [];
-                this.category = this.navParams.data;
-                category => this.category = category
-                this.showRecipes()});
+                console.log(this.navParams.data.toString())
+
+                if (this.navParams.data.toString()=='[object Object]'){
+                    console.log('Ok')
+
+                    this.recipesCat = data;
+                }
+                else{
+                    this.category = this.navParams.data;
+                    category => this.category = category
+                    this.showRecipes()
+                }
+                });
         this.category = this.navParams.data;
         category => this.category = category
 
@@ -70,14 +80,13 @@ export class RecipeListPage {
 
     showRecipes(){
         let val = this.recipes;
-        console.log(val)
-        for (var _i = 0; _i < val.length; _i++) {
-            if(val[_i].category == this.category){
-                this.recipesCat.push(val[_i]);
-                console.log('add');
+            for (var _i = 0; _i < val.length; _i++) {
+                if(val[_i].category == this.category){
+                    this.recipesCat.push(val[_i]);
+                    console.log('add');
             }
+        }
     }
-}
 
     recipeMap() {
         setTimeout(() => {
