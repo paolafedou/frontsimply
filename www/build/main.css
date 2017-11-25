@@ -26667,6 +26667,36 @@ page-welcome {
   font-weight: 300;
 }
 
+page-welcome .col-33 {
+  width: 33%;
+  float: left;
+}
+
+page-welcome .center {
+  text-align: center;
+  color: black;
+}
+
+page-welcome ion-title {
+  background-color: rgba(50, 100, 0, 0.8);
+}
+
+page-welcome ion-list {
+  border-top: 1px;
+  border-bottom: 1px;
+  display: inline-block;
+}
+
+page-welcome ion-list img {
+  position: relative;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 60%;
+  height: 40%;
+  margin-top: -10px;
+}
+
 page-welcome ion-slide {
   position: relative;
   background-size: cover;
@@ -26677,7 +26707,7 @@ page-welcome ion-slide p {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(50, 19, 178, 0.8);
+  background-color: rgba(50, 100, 0, 0.8);
   color: #FFFFFF;
   padding: 28px 28px 48px 28px;
   font-size: 2.7rem;
