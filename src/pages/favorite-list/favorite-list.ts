@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {RecipeService} from '../../providers/recipe-service-rest';
 import {RecipeDetailPage} from '../recipe-detail/recipe-detail';
+import leaflet from 'leaflet';
 
 @Component({
     selector: 'page-favorite-list',
@@ -61,13 +62,6 @@ export class FavoriteListPage {
             this.map.removeLayer(this.markersGroup);
         }
         this.markersGroup = leaflet.layerGroup([]);
-        this.recipes.forEach(recipe => {
-            if (recipe.lat, recipe.lng) {
-                let marker: any = leaflet.marker([recipe.lat, recipe.lng]).on('click', event => this.openRecipeDetail(event.target.data));
-                marker.data = recipe;
-                this.markersGroup.addLayer(marker);
-            }
-        });
         this.map.addLayer(this.markersGroup);
     }
 
