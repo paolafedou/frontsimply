@@ -10,6 +10,11 @@ import {RecipeDetailPage} from '../recipe-detail/recipe-detail';
 export class FavoriteListPage {
 
     cartItems: Array<any>;
+    recipesForSearch: Array<any>;
+    searchKey: string = "";
+    viewMode: string = "list";
+    map;
+    markersGroup;
 
     constructor(public navCtrl: NavController, public service: RecipeService) {
         this.getCart();
@@ -31,6 +36,7 @@ export class FavoriteListPage {
         this.service.getCart()
         .then(data => {
                 this.cartItems = data;
+                this.recipesForSearch = data;
                 console.log("data", this.cartItems);
                 })
     }
