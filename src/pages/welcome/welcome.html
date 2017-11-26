@@ -1,8 +1,13 @@
 <ion-header>
     <ion-navbar>
         <button ion-button menuToggle>
-            <ion-icon name="basket"></ion-icon>
+            <ion-icon name="menu"></ion-icon>
         </button>
+        <ion-buttons end>
+            <button class='color1' (click)="openCart()">
+                <ion-icon class='big' name="basket"></ion-icon>
+            </button>
+        </ion-buttons>
         <ion-title text-center>Hungry ?</ion-title>
     </ion-navbar>
 </ion-header>

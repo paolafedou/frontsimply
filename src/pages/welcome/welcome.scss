@@ -10,18 +10,15 @@ page-welcome {
     color: black;
 }
 
-ion-header{
-  background-color: rgba(25, 156, 93, .8);
-
+.big {
+  width: 20;
 }
 
-.toolbar-background {
-  background-color: rgba(25, 156, 93, .8);
+.color1 {
+  color: white;
+  background-color: rgba(70, 175, 120, .8);
 }
 
-ion-title{
-  background-color: rgba(25, 156, 93, .8);
-}
 ion-list {
 
 border-top: 1px;
@@ -30,7 +27,7 @@ border-bottom: 1px;
   div{
     border-width: 2px;  
     border-style:solid;
-    border-color:rgba(25, 156, 93, .8);
+    border-color:rgba(70, 175, 120, .8);
 
   }
 
@@ -47,40 +44,6 @@ border-bottom: 1px;
 }
 
   font-weight: 300;
-
- 
-
-  ion-slide {
-    position: relative;
-    background-size: cover;
-
-    p {
-      display: inline-block;
-      
-      border: 2px groove black;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: rgba(50, 100, 0, .8);
-      color: #FFFFFF;
-      padding: 28px 28px 48px 28px;
-      font-size: 2.7rem;
-      margin-bottom: 0;
-    }
-
-    img {
-      width: 100px;
-      height: 50px;
-      margin-top: -150px
-    }
-
-    div {
-    border-width: 5px;  
-    border-style:groove;
-    }
-
-  }
 
   .swiper-pagination-bullet {
     background: white;

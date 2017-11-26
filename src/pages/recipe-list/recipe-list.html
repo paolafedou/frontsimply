@@ -4,6 +4,11 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
+        <ion-buttons end>
+            <button class='color1' (click)="openCart()"> 
+                <ion-icon  name="basket"></ion-icon>
+            </button>
+        </ion-buttons>
         <ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)"
                        (ionCancel)="onCancel($event)"></ion-searchbar>
     </ion-navbar>

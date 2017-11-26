@@ -1,7 +1,18 @@
 .searchbar-input {
+  
   box-shadow: none !important;
 }
 
+.toolbar-background {
+  background-color: rgba(25, 156, 93, .8);
+}
+
+.color1 {
+  color: white;
+  background-color: rgba(70, 175, 120, .8);
+}
+
 ion-footer {
+  background-color: rgba(25, 156, 93, .8);
   padding: 8px 16px !important;
 }

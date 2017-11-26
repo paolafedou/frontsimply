@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Config, NavController, NavParams} from 'ionic-angular';
 import {RecipeService} from '../../providers/recipe-service-rest';
 import {RecipeDetailPage} from '../recipe-detail/recipe-detail';
+import {FavoriteListPage} from '../favorite-list/favorite-list';
 import leaflet from 'leaflet';
 
 @Component({
@@ -48,6 +49,10 @@ export class RecipeListPage {
     openRecipeDetail(recipe: any) {
         console.log(recipe.category);
         this.navCtrl.push(RecipeDetailPage, recipe);
+    }
+
+    openCart() {
+        this.navCtrl.push(FavoriteListPage);
     }
 
     onInput(recipe) {
