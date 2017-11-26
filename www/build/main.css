@@ -26677,14 +26677,27 @@ page-welcome .center {
   color: black;
 }
 
+page-welcome ion-header {
+  background-color: rgba(25, 156, 93, 0.8);
+}
+
+page-welcome .toolbar-background {
+  background-color: rgba(25, 156, 93, 0.8);
+}
+
 page-welcome ion-title {
-  background-color: rgba(50, 100, 0, 0.8);
+  background-color: rgba(25, 156, 93, 0.8);
 }
 
 page-welcome ion-list {
   border-top: 1px;
   border-bottom: 1px;
-  display: inline-block;
+}
+
+page-welcome ion-list div {
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(25, 156, 93, 0.8);
 }
 
 page-welcome ion-list img {
@@ -26692,8 +26705,8 @@ page-welcome ion-list img {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 60%;
-  height: 40%;
+  width: 38%;
+  height: 27%;
   margin-top: -10px;
 }
 
@@ -26703,6 +26716,8 @@ page-welcome ion-slide {
 }
 
 page-welcome ion-slide p {
+  display: inline-block;
+  border: 2px groove black;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -26718,6 +26733,11 @@ page-welcome ion-slide img {
   width: 100px;
   height: 50px;
   margin-top: -150px;
+}
+
+page-welcome ion-slide div {
+  border-width: 5px;
+  border-style: groove;
 }
 
 page-welcome .swiper-pagination-bullet {
