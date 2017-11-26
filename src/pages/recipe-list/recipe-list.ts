@@ -28,10 +28,8 @@ export class RecipeListPage {
                 this.recipes = data;
                 this.recipesForSearch = data;
                 this.recipesCat = [];
-                console.log(this.navParams.data.toString())
 
                 if (this.navParams.data.toString()=='[object Object]'){
-                    console.log('Ok')
 
                     this.recipesCat = data;
                 }
@@ -47,7 +45,6 @@ export class RecipeListPage {
     }
 
     openRecipeDetail(recipe: any) {
-        console.log(recipe.category);
         this.navCtrl.push(RecipeDetailPage, recipe);
     }
 
@@ -88,7 +85,6 @@ export class RecipeListPage {
             for (var _i = 0; _i < val.length; _i++) {
                 if(val[_i].category == this.category){
                     this.recipesCat.push(val[_i]);
-                    console.log('add');
             }
         }
     }

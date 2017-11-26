@@ -2,12 +2,14 @@ import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {RecipeService} from '../../providers/recipe-service-rest';
 import {RecipeDetailPage} from '../recipe-detail/recipe-detail';
+import {CartDetailPage} from '../cart-detail/cart-detail';
 import leaflet from 'leaflet';
 
 @Component({
     selector: 'page-favorite-list',
     templateUrl: 'favorite-list.html'
 })
+
 export class FavoriteListPage {
 
     cartItems: Array<any>;
@@ -22,7 +24,7 @@ export class FavoriteListPage {
     }
 
     itemTapped(recipe) {
-        this.navCtrl.push(RecipeDetailPage, recipe.show);
+        this.navCtrl.push(CartDetailPage, recipe.show);
     }
 
     deleteItem(recipe) {
@@ -38,13 +40,15 @@ export class FavoriteListPage {
         .then(data => {
                 this.cartItems = data;
                 this.recipesForSearch = data;
-                console.log("data", this.cartItems);
                 })
     }
 
     openRecipeDetail(recipe: any) {
-        console.log(recipe.category);
         this.navCtrl.push(RecipeDetailPage, recipe);
+    }
+
+    openCartDetail(cartItem: any) {
+    this.navCtrl.push(CartDetailPage, cartItem);
     }
 
     recipeMap() {

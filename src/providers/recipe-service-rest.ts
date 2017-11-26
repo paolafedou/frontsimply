@@ -47,7 +47,6 @@ export class RecipeService {
     addToCart(recipe, personCount) {
         this.cartCounter = this.cartCounter + 1;
         this.cartItems.push({id: this.cartCounter, recipe: recipe, personCount: personCount});
-        console.log("cart :", this.cartItems);
         return Promise.resolve();
     }
 

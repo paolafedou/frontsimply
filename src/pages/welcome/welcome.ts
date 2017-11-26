@@ -24,7 +24,6 @@ export class WelcomePage {
     }
 
     openRecipeListCat(category) {
-        console.log(category);
         this.navCtrl.push(RecipeListPage,category);
     }
 

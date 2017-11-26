@@ -8,6 +8,7 @@ import {WelcomePage} from '../pages/welcome/welcome';
 import {RecipeListPage} from '../pages/recipe-list/recipe-list';
 import {RecipeDetailPage} from '../pages/recipe-detail/recipe-detail';
 import {FavoriteListPage} from '../pages/favorite-list/favorite-list';
+import {CartDetailPage} from '../pages/cart-detail/cart-detail';
 import {AboutPage} from '../pages/about/about';
 
 import {RecipeService} from "../providers/recipe-service-rest";
@@ -22,7 +23,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     RecipeListPage,
     RecipeDetailPage,
-    FavoriteListPage
+    FavoriteListPage,
+    CartDetailPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     RecipeListPage,
     RecipeDetailPage,
-    FavoriteListPage
+    FavoriteListPage,
+    CartDetailPage
   ],
   providers: [
     StatusBar,
