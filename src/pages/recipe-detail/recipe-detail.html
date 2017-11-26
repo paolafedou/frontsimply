@@ -1,6 +1,11 @@
 <ion-header>
     <ion-navbar>
         <ion-title>Recipe</ion-title>
+         <ion-buttons end>
+            <button class='color1' (click)="openCart()"> 
+                <ion-icon  name="basket"></ion-icon>
+            </button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>
 
@@ -11,23 +16,28 @@
             <h2 class="card-title">{{recipe.name}}</h2>
             
         </ion-card-content>
-        <ion-list>
+        <ion-item-group>
             <ion-item>
                 <ion-icon item-left name="nutrition"></ion-icon>
                 <h3>Category</h3>
                 <ion-note item-right>{{recipe.category}}</ion-note>
             </ion-item>
+              <ion-item-divider color="light"></ion-item-divider>
             <ion-item>
                 <ion-icon item-left name="basket"></ion-icon>
                 <h3>Ingredients</h3>
-                <ion-note item-right>{{recipe.ingredients}}</ion-note>
+                <ion-note item-right *ngFor="let ingredient of Ingredients">{{ingredient.name}},</ion-note>
             </ion-item>
-           
-        </ion-list>
+
+       <ion-item-divider color="light"></ion-item-divider>
         <ion-item>
             <button ion-button icon-left (click)="remove1person()" clear item-left>
+<<<<<<< HEAD
                 <ion-icon name="remove"></ion-icon>
+=======
+>>>>>>> ec63c7df1894d86720844241c8b1fc8e898cf47c
                 Remove
+                <ion-icon name="remove"></ion-icon>
             </button>
             <h2>{{personCount}} personnes </h2>
             <button ion-button icon-left (click)="add1person()" clear item-right>
@@ -35,9 +45,15 @@
                 Add
             </button>
         </ion-item>
+        <ion-item-divider color="light"></ion-item-divider>
         <ion-item>
+<<<<<<< HEAD
             <button ion-button icon-center (click)="addToCart(recipe)" clear item-left>
                 <ion-icon name="cart"></ion-icon>
+=======
+            <button ion-button icon-left (click)="addToCart(recipe)" clear item-left>
+                <ion-icon name="checkmark"></ion-icon>
+>>>>>>> ec63c7df1894d86720844241c8b1fc8e898cf47c
                 Add to Cart
             </button>
             <button ion-button icon-left (click)="share(recipe)" clear item-right>
@@ -45,6 +61,7 @@
                 Share
             </button>
         </ion-item>
+         </ion-item-group>
 
     </ion-card>
 </ion-content>

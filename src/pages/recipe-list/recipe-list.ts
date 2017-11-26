@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Config, NavController, NavParams} from 'ionic-angular';
 import {RecipeService} from '../../providers/recipe-service-rest';
 import {RecipeDetailPage} from '../recipe-detail/recipe-detail';
+import {FavoriteListPage} from '../favorite-list/favorite-list';
 import leaflet from 'leaflet';
 
 @Component({
@@ -17,7 +18,7 @@ export class RecipeListPage {
     viewMode: string = "list";
     map;
     markersGroup;
-    category: any;
+    category: any ='';
     recipesCat: Array<any>;
 
     constructor(public navCtrl: NavController, public service: RecipeService, public config: Config, public navParams: NavParams) {
@@ -27,17 +28,28 @@ export class RecipeListPage {
                 this.recipes = data;
                 this.recipesForSearch = data;
                 this.recipesCat = [];
-                this.category = this.navParams.data;
-                category => this.category = category
-                this.showRecipes()});
+
+                if (this.navParams.data.toString()=='[object Object]'){
+
+                    this.recipesCat = data;
+                }
+                else{
+                    this.category = this.navParams.data;
+                    category => this.category = category
+                    this.showRecipes()
+                }
+                });
         this.category = this.navParams.data;
         category => this.category = category
 
     }
 
     openRecipeDetail(recipe: any) {
-        console.log(recipe.category);
         this.navCtrl.push(RecipeDetailPage, recipe);
+    }
+
+    openCart() {
+        this.navCtrl.push(FavoriteListPage);
     }
 
     onInput(recipe) {
@@ -70,14 +82,12 @@ export class RecipeListPage {
 
     showRecipes(){
         let val = this.recipes;
-        console.log(val)
-        for (var _i = 0; _i < val.length; _i++) {
-            if(val[_i].category == this.category){
-                this.recipesCat.push(val[_i]);
-                console.log('add');
+            for (var _i = 0; _i < val.length; _i++) {
+                if(val[_i].category == this.category){
+                    this.recipesCat.push(val[_i]);
             }
+        }
     }
-}
 
     recipeMap() {
         setTimeout(() => {

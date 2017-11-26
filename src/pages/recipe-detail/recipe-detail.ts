@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {ActionSheetController, ActionSheet, NavController, NavParams, ToastController} from 'ionic-angular';
 import {RecipeService} from '../../providers/recipe-service-rest';
+import {FavoriteListPage} from '../favorite-list/favorite-list';
+
 
 @Component({
     selector: 'page-recipe-detail',
@@ -10,12 +12,21 @@ export class RecipeDetailPage {
 
     recipe: any;
     personCount: number = 0;
+    Ingredients: Array<any>;
+    Names: Array<string>;
+
 
     constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController, public navParams: NavParams, public RecipeService: RecipeService, public toastCtrl: ToastController) {
         this.recipe = this.navParams.data;
         RecipeService.findById(this.recipe.id).then(
             recipe => this.recipe = recipe
         );
+        this.Ingredients = this.recipe.ingredients;
+        
+    }
+
+    openCart() {
+    this.navCtrl.push(FavoriteListPage);
     }
 
     add1person() {

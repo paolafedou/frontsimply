@@ -26705,8 +26705,13 @@ page-welcome ion-list img {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+<<<<<<< HEAD
   width: 38%;
   height: 27%;
+=======
+  width: 40%;
+  height: 20%;
+>>>>>>> ec63c7df1894d86720844241c8b1fc8e898cf47c
   margin-top: -10px;
 }
 

@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Recipe</ion-title>
+         <ion-buttons end>
+            <button class='color1' (click)="openCart()"> 
+                <ion-icon  name="basket"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngIf="recipe.id">
+        <img src="{{recipe.image}}"/>
+        <ion-card-content>
+            <h2 class="card-title">{{recipe.name}}</h2>
+            
+        </ion-card-content>
+        <ion-item-group>
+            <ion-item>
+                <ion-icon item-left name="nutrition"></ion-icon>
+                <h3>Category</h3>
+                <ion-note item-right>{{recipe.category}}</ion-note>
+            </ion-item>
+            <ion-item-divider color="light"></ion-item-divider>
+            <ion-item>
+            <ion-icon item-left name="contact"></ion-icon>
+            {{personCount}} Personne
+            <button ion-button icon-right (click)="add1Person()" clear item-right>
+                <ion-icon name="add"></ion-icon>
+            </button>
+            <button ion-button icon-right (click)="remove1Person()" clear item-right>
+                <ion-icon name="remove"></ion-icon>
+            </button>
+            </ion-item>
+            <ion-item-divider color="light"></ion-item-divider>
+            <ion-item>
+                <ion-icon item-left name="basket"></ion-icon>
+                <b>Quantités</b>
+                <div class="row" *ngFor="let ingredient of Ingredients">{{ingredient.name}}, {{ingredient.quantity*personCount}}  {{ingredient.unit}}</div>
+            </ion-item>
+            <ion-item-divider color="light"></ion-item-divider>
+            <ion-item text-wrap>
+            <ion-icon item-left name="build"></ion-icon>
+             <b>Recette</b>
+              {{recipe.description_detail}}
+            </ion-item>
+            <button ion-button icon-left (click)="share(recipe)" clear item-right>
+                <ion-icon name="share"></ion-icon>
+                Share
+            </button>
+        </ion-item-group>
+
+    </ion-card>
+</ion-content>

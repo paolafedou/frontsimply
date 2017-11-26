@@ -1,7 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import { Slides, NavController } from 'ionic-angular';
 import {RecipeListPage} from '../recipe-list/recipe-list';
-import { ImageResizer, ImageResizerOptions } from '@ionic-native/image-resizer';
+import {FavoriteListPage} from '../favorite-list/favorite-list';
 
 @Component({
     selector: 'page-welcome',
@@ -24,7 +24,10 @@ export class WelcomePage {
     }
 
     openRecipeListCat(category) {
-        console.log(category);
         this.navCtrl.push(RecipeListPage,category);
+    }
+
+    openCart() {
+    this.navCtrl.push(FavoriteListPage);
     }
 }
